@@ -1,6 +1,7 @@
 from flask import render_template, request
-from report_of_monaco_racing.groper_and_printer import groper
-from report_of_monaco_racing.processing_functions import get_racer, sort_racers
+from report_of_monaco_racing.groper_and_printer import groper  # type: ignore
+from report_of_monaco_racing.processing_functions import (  # type: ignore
+    get_racer, sort_racers)
 
 from my_app import app
 
@@ -15,8 +16,20 @@ def report():
 def drivers():
     racers = list(map(lambda x: str(x), sort_racers(
         groper(
-            "C:/Users/petli/PycharmProjects/task-7-web-report-of-monaco-2018-racing/race_info"
+            "C:/Users/petli/PycharmProjects/"
+            "task-7-web-report-of-monaco-2018-racing/race_info"
         )
+    )))
+    return render_template("drivers.html", racers=racers)
+
+
+@app.route("/report/drivers_desc")
+def drivers_desc():
+    racers = list(map(lambda x: str(x), sort_racers(
+        groper(
+            "C:/Users/petli/PycharmProjects/"
+            "task-7-web-report-of-monaco-2018-racing/race_info"
+        ), True
     )))
     return render_template("drivers.html", racers=racers)
 
@@ -25,7 +38,8 @@ def drivers():
 def handle_data():
     fullname = request.form["fullname"]
     racer_info = str(get_racer(groper(
-        "C:/Users/petli/PycharmProjects/task-7-web-report-of-monaco-2018-racing/race_info"
+        "C:/Users/petli/PycharmProjects/"
+        "task-7-web-report-of-monaco-2018-racing/race_info"
     ), fullname))
     return render_template("driver_info.html", racer_info=racer_info)
 
