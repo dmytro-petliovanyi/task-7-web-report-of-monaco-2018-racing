@@ -15,7 +15,7 @@ repos:
 #        entry: flake8
 #        language: system
 #        types: [ python ]
-
+#
 #    -   id: mypy
 #        name: mypy
 #        entry: mypy
