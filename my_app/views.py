@@ -24,9 +24,9 @@ def drivers():
 @app.route("/handle_data", methods=["POST"])
 def handle_data():
     fullname = request.form["fullname"]
-    racer_info = get_racer(groper(
+    racer_info = str(get_racer(groper(
         "C:/Users/petli/PycharmProjects/task-7-web-report-of-monaco-2018-racing/race_info"
-    ), fullname)
+    ), fullname))
     return render_template("driver_info.html", racer_info=racer_info)
 
 
