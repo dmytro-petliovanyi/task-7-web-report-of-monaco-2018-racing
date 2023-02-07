@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <script type='text/javascript' src='../static/js/stylno_modno.js'></script>
+  </head>
+  <body>
+    <div class="container">
+
+        <div class="row height d-flex justify-content-center align-items-center">
+
+            <div class="col-md-8">
+
+                <div class="search buttonHolder">
+
+                    <i class="fa fa-search"></i>
+
+                    <form method="post" action="{{ url_for('report') }}" enctype="multipart/form-data">
+
+                        <div class="box__input">
+
+                            <input type="file" name="files[]" multiple autocomplete="off" required>
+
+                            <p>
+                                <input type="submit" value="Submit">
+                            </p>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+  </body>
