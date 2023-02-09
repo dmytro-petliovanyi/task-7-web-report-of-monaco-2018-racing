@@ -1,18 +1,17 @@
-{% extends "base.html"%}
+{% extends "base.html" %}
 
 
 {% block title %}
-    Drivers
+    Driver info
 {% endblock %}
 
 {% block main %}
     <main class="main">
+        <div class="grid">
 
-      <div class="grid">
+            {{ racer_info }}
 
-          {{ racer_info }}
-
-      </div>
+        </div>
 
     </main>
 {% endblock %}
