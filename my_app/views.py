@@ -1,10 +1,7 @@
-import os
-
 from flask import Response, redirect, render_template, request
-from report_of_monaco_racing import get_racer, groper
 
 from my_app import app
-from my_app.functions_view import form_racers
+from my_app.functions_view import form_racers, racer_to_str
 
 
 @app.route("/")
@@ -26,7 +23,7 @@ def drivers() -> str:
 
 @app.route("/report/drivers/driver_id=<driver_name>")
 def single_driver(driver_name: str) -> str:
-    racer_info = str(get_racer(groper(os.environ["TARGET_DIR"]), driver_name))
+    racer_info = racer_to_str(driver_name)
     return render_template("driver_info.html", racer_info=racer_info)
 
 
