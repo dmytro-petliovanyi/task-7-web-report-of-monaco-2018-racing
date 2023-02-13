@@ -119,11 +119,11 @@
         },
         "task-6-report-of-monaco-2018-racing-by-petliovany": {
             "hashes": [
-                "sha256:38de09c0ab135a73a787a000b456ae3568b347fc58a5fafd0c46f83c35f9deb2",
-                "sha256:f88aad3394997ff1362071e0708c410f2eaf25e1d887bb18b23238aac1fabcf1"
+                "sha256:3895deef7b1d963b738286e40efde5c3d5fe018be9eda001bf5104872866ae20",
+                "sha256:5f37a0322fffa6f70127aa141edd16b32174644f4579c22569fc4bfc822b085b"
             ],
             "index": "testpypi",
-            "version": "==0.0.3"
+            "version": "==0.0.4"
         },
         "werkzeug": {
             "hashes": [

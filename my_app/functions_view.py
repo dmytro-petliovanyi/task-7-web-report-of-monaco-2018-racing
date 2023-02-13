@@ -3,7 +3,7 @@ import os
 from report_of_monaco_racing import Racer, groper, sort_racers
 
 
-def racer_to_str(driver_id: str) -> str:
+def racer_to_str(driver_id: str) -> str | None:
     drivers = groper(os.environ["TARGET_DIR"])
     for driver in drivers:
         driver_abbr = get_abbr(driver)
@@ -11,7 +11,7 @@ def racer_to_str(driver_id: str) -> str:
             return str(driver)
 
 
-def form_racers(reverse: bool = False) -> (list[str], list[str]):
+def form_racers(reverse: bool = False) -> dict:
     racers_list = sort_racers(
         groper(os.environ["TARGET_DIR"]), reverse
     )
