@@ -1,4 +1,4 @@
-from flask import Response, redirect, render_template, request
+from flask import render_template, request
 
 from my_app import app
 from my_app.functions_view import form_racers, racer_to_str
@@ -15,19 +15,15 @@ def drivers() -> str:
     args = request.args.to_dict()
 
     if args.get("order") == "desc":
-        return render_template("drivers.html", racers=form_racers(True))
+        order = True
 
     if not args or args.get("order") == "asc":
-        return render_template("drivers.html", racers=form_racers())
+        order = False
+
+    return render_template("drivers.html", racers=form_racers(order))
 
 
-@app.route("/report/drivers/driver_id=<driver_name>")
-def single_driver(driver_name: str) -> str:
-    racer_info = racer_to_str(driver_name)
+@app.route("/report/drivers/driver_id=<driver_id>")
+def single_driver(driver_id: str) -> str:
+    racer_info = racer_to_str(driver_id)
     return render_template("driver_info.html", racer_info=racer_info)
-
-
-@app.route("/report/drivers/driver_handle", methods=["POST"])
-def handle_data() -> Response:
-    fullname = request.form["fullname"]
-    return redirect(f"/report/drivers/driver_id={fullname}")

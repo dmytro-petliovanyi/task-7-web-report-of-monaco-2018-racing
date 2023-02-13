@@ -8,12 +8,12 @@
 {% block main %}
     <main class="main">
 
-      <div class="grid">
 
-          {% for racer in racers %}
-              <p>{{ racer }}</p>
-          {% endfor %}
-      </div>
+        <ul>
+            {% for abbr, racer in racers | items %}
+                <li ><a href="http://127.0.0.1:5000/report/drivers/driver_id={{ abbr }}" class="navigation__link">{{ racer }}</a></li>
+            {% endfor %}
+        </ul>
 
     </main>
 {% endblock %}
