@@ -1,6 +1,10 @@
 import datetime
 
+import pytest
 from report_of_monaco_racing import Racer
+
+from my_app.config import DefaultConfig
+from start import app
 
 racers_for_patch = [
         Racer(
@@ -22,3 +26,10 @@ racers_for_patch = [
             datetime.time(12, 11, 32, 585000)
         )
     ]
+
+
+@pytest.fixture
+def client():
+    app.config.from_object(DefaultConfig)
+    with app.test_client() as client:
+        yield client
