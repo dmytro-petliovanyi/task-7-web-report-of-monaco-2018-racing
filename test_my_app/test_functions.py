@@ -5,8 +5,8 @@ from test_my_app.conftest import racers_for_patch
 
 
 @patch("my_app.functions_view.groper", return_value=racers_for_patch)
-@patch("os.environ", return_value="some_text")
-def test_racer_to_str_works_as_expected(patch_environ,
+@patch("my_app.app.config", return_value="some_text")
+def test_racer_to_str_works_as_expected(patch_config,
                                         patch_groper):
     result = racer_to_str("DRR")
     patch_groper.assert_called()
@@ -16,8 +16,8 @@ def test_racer_to_str_works_as_expected(patch_environ,
 @patch("my_app.functions_view.get_abbr")
 @patch("my_app.functions_view.sort_racers", return_value=sorted(racers_for_patch))
 @patch("my_app.functions_view.groper", return_value=racers_for_patch)
-@patch("os.environ", return_value="some_text")
-def test_form_racers_works_as_expected(patch_environ,
+@patch("my_app.app.config", return_value="some_text")
+def test_form_racers_works_as_expected(patch_config,
                                        patch_groper,
                                        patch_get_racer,
                                        patch_get_abbr):

@@ -1,4 +1,10 @@
-class DefaultConfig(object):
-    TARGET_DIR = "C:/Users/petli/PycharmProjects/task-7-web-report-of-monaco-2018-racing/race_info"
+import os
+
+from dotenv import load_dotenv
+
+
+class DefaultConfig:
+    load_dotenv()
+    TARGET_DIR = os.environ["RACE_INFO_DIR"]
     DEBUG = True
     TESTING = True

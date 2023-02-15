@@ -33,3 +33,10 @@ def client():
     app.config.from_object(DefaultConfig)
     with app.test_client() as client:
         yield client
+
+
+racers_dict = {
+    "DRR": "Daniel Ricciardo | RED BULL RACING TAG HEUER | 2:47.987",
+    "SVF": "Sebastian Vettel | FERRARI | 1:04.415",
+    "LHM": "Lewis Hamilton | MERCEDES | 6:47.545"
+}
