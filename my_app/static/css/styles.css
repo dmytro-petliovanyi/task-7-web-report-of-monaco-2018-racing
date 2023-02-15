@@ -140,15 +140,3 @@ p {
   left: 16px;
 
 }
-
-.btn{
-  text-align: center;
-  border-radius: 0.5rem;
-  position: absolute;
-  top: 0;
-  right: 5px;
-  height: 50px;
-  width: 110px;
-  background: blue;
-  color: white;
-}
