@@ -1,8 +1,8 @@
 from flask import render_template, request
 
 from my_app import app
+from my_app.constants import OrderEnum
 from my_app.functions_view import form_racers, racer_to_str
-from my_app.orderEnum_class import OrderEnum
 
 
 @app.route("/")
@@ -14,14 +14,16 @@ def report() -> str:
 @app.route("/report/drivers")
 def drivers() -> str:
     args = request.args.to_dict()
-    order = OrderEnum(args.get("order"))
     order_bool = False
 
-    if args and order == OrderEnum.desc:
-        order_bool = True
+    if args:
+        order = OrderEnum(args.get("order"))
 
-    if not args or order == OrderEnum.asc:
-        order_bool = False
+        if order == OrderEnum.desc:
+            order_bool = True
+
+        elif order == OrderEnum.asc:
+            order_bool = False
 
     return render_template("drivers.html", racers=form_racers(order_bool))
 

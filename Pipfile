@@ -12,6 +12,7 @@ name = "testpypi"
 flask = "*"
 task-6-report-of-monaco-2018-racing-by-petliovany = {version = "*", index = "testpypi"}
 python-dotenv = "*"
+mypy = "*"
 
 [dev-packages]
 flake8 = "*"
